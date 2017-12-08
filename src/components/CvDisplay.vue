@@ -3,7 +3,7 @@
         <div>
             <center><h4>{{fullname}}</h4></center><br>
             <router-link :to="{ name: 'generator', params: { id: cv.id }}"><button class="waves-effect waves-light btn">Modifier ce cv</button></router-link>
-            <button class="waves-effect waves-light btn" @click.prevent="remove">Supprimer</button>
+            <button class="waves-effect waves-light btn" @click="remove(cv)">Supprimer</button>
         </div>
     </article>
 </template>

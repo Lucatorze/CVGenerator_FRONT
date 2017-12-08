@@ -9,12 +9,12 @@
               <div id="info">
                  {{cv.adress}}<br>{{cv.city}}, {{cv.country}}<br>
                  +33{{cv.phone}}<br> {{cv.email}}
-              </div><br>
+              </div><br><br>
               <div class="photo">
-                  <img :src="cv.photo" width="200px">
+                  <img :src="cv.photo" width="150px">
               </div>
               <h1>{{cv.firstname}} {{cv.lastname}}<br>{{cv.job}}</h1>
-          
+            <br>
               <div class="section">
                 <h2>Experience</h2>
                 <div class="content">
@@ -109,9 +109,9 @@ export default {
   methods: {
     generatePdf(){
 
-      html2canvas(document.getElementById('workbench'), {letterRendering: 1, allowTaint : true})
+      html2canvas(document.getElementById('workbench'))
       .then((canvas) => {
-        var img=canvas.toDataURL("image/png", 1.0);
+        var img=canvas.toDataURL("image/png");
         var doc = new JsPDF("mm");
         doc.addImage(img, 'JPEG', -1, 0, 212, 297);
         doc.save("CV-" + this.cv.firstname + "-" + this.cv.lastname + '.pdf');
@@ -171,7 +171,6 @@ export default {
   }
 	#workbench	h1{
       margin-top: 100px;
-      text-align: center;
 			}
 	#workbench	h2 {
 			font-size:1.3em;

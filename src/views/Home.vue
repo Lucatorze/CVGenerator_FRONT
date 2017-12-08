@@ -30,12 +30,11 @@ export default {
           }
       },
       methods:{
-          removeCv(cv){
-            console.log(cv)
+          removeCv: function(cv) {
             CvService.removeCv(cv).then(response => {
-            this.cvs = this.cvs.filter(cv => {return response.deleted._id != cv.id});
+                this.cvs = this.cvs.filter(c => {return response.deleted._id != c._id})
             });
-          },
+          }
       },
 
       created(){
