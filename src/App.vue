@@ -4,7 +4,6 @@
             <div class="nav-wrapper">
                 <ul class="left hide-on-med-and-down">
                     <li><router-link to="/">Page d'accueil</router-link></li>
-                    <li><router-link to="/">Liste des CV</router-link></li>
                 </ul>
                 <ul class="right hide-on-med-and-down">
                     <li><router-link to="/add">Ajouter un CV</router-link></li>

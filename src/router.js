@@ -5,7 +5,7 @@ import AddView from './views/Add.vue'
 
 const routes = [
    { path: '/', component: HomeView },
-   { path: '/generator', component: GeneratorView },
+   { name : "generator", path: '/generator/:id', component: GeneratorView },
    //{ path: '/list', component: ListView },
    { path: '/add', component: AddView }
 ];

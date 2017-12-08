@@ -9,9 +9,10 @@ export default {
             .then(res => res.data)
             .catch(console.error);
     },
-    fetchOne(cv) {
+    fetchOne(cvId) {
+        console.log(cvId)
         return axios
-            .get(`${API_ENDPOINT}/cv/${cv._id}`)
+            .get(`${API_ENDPOINT}/cv/generator/${cvId}`)
             .then(res => res.data)
             .catch(console.error);
     },

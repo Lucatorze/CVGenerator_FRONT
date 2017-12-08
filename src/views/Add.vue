@@ -3,11 +3,7 @@
         <h1>Créez votre CV</h1>
         <hr>
         <br>
-<<<<<<< HEAD
-        <cv-form></cv-form>
-=======
         <cv-form @send="addCv"></cv-form>
->>>>>>> 5be9c3f52e9fe050a9158580c9e71589351cc140
     </div>
 </template>
 

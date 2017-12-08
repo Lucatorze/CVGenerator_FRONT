@@ -11,6 +11,7 @@
             <i class="material-icons">perm_contact_calendar</i> {{cv.birthdate}} ({{cv.birthdate | age}} ans)<br>
             <i class="material-icons">location_on</i>  {{cv.city}}, {{cv.country}}
             </p>
+            <router-link :to="{ name: 'generator', params: { id: cv.id }}"><button class="waves-effect waves-light btn">Modifier ce cv</button></router-link>
             <button class="waves-effect waves-light btn" @click.prevent="remove">Supprimer</button>
         </div>
     </article>
