@@ -1,5 +1,5 @@
 <template>
-  <form class="cv-form">
+  <form class="cv-form" method="POST" @submit.prevent="send">
           <div class="row">
               <div class="input-field col s6">
                   <label for="firstname">Prenom</label>
@@ -55,6 +55,14 @@
                   <input id="photo" type="text" class="validate" v-model="cv.photo">
               </div>
           </div>
+
+          <div class="row">
+              <div class="input-field col s12">
+                  <label for="job">Job Title</label>
+                  <input id="job" type="text" class="validate" v-model="cv.job" v-model.trim="cv.job" @input="$v.cv.job.$touch()">
+                  <span class="form-group__message alert" v-if="!$v.cv.job.required && $v.cv.job.$dirty">Le champ "Job Title" est obligatoire</span>
+              </div>
+          </div>
           <input type="submit" value="Envoyer !">
       </form>
 </template>
@@ -67,23 +75,23 @@ export default {
    data () {
      return {
        cv : {
-         firstname : '',
          lastname : '',
-         gender : '',
+         firstname : '',
          email : '',
          phone : '',
          birthdate : '',
          city : '',
          country : '',
          photo : '',
+         job : '',
        }
      }
    },
-   /*methods:{
+   methods:{
      send: function(){
        this.$emit('send', this.cv);
      },
-  },*/
+  },
   validations: {
             cv: {
                 firstname: {
@@ -93,9 +101,6 @@ export default {
                 lastname: {
                     required,
                     minLength : minLength(2),
-                },
-                gender: {
-                    required,
                 },
                 email: {
                     required,
@@ -117,7 +122,10 @@ export default {
                 },
                 photo: {
                     url
-                }
+                },
+                job: {
+                    required,
+                },
             }
     }
 }
