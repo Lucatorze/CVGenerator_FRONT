@@ -125,6 +125,13 @@
                     </div>
                 </div>
               </div>
+
+              <div class="row">
+                  <div class="input-field col s12">
+                      <textarea id="hobbie" type="text"  v-model="cv.hobbie" v-model.trim="cv.hobbie" placeholder="Hobbies"> </textarea>
+
+                  </div>
+              </div>
           </div>
           <input type="submit" value="Envoyer !">
       </form>
@@ -175,7 +182,8 @@ export default {
            dateStart2:'',
            dateEnd2:'',
            description2:'',
-         }
+         },
+         hobbie:''
        }
      }
    },
