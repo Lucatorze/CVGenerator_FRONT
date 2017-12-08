@@ -1,5 +1,5 @@
 <template>
-  <form class="cv-form">
+  <form class="cv-form" method="POST" @submit.prevent="send">
           <div class="row">
               <div class="input-field col s6">
                   <label for="firstname">Prenom</label>
@@ -15,17 +15,6 @@
                   <span class="form-group__message alert" v-if="!$v.cv.lastname.minLength">Il doit y avoir un minimum de {{$v.cv.lastname.$params.minLength.min}} lettres.</span>
               </div>
           </div>
-          <!--<div class="row">
-              <p>
-                  <label for="male">Homme</label>
-                  <input name="gender" type="radio" id="male" value="male" v-model="cv.gender" v-model.trim="cv.gender" @input="$v.cv.gender.$touch()">
-              </p>
-              <p>
-                  <label for="female">Femme</label>
-                  <input name="gender" type="radio" id="female" value="female" v-model="cv.gender" v-model.trim="cv.gender" @input="$v.cv.gender.$touch()">
-              </p>
-              <span class="form-group__message alert" v-if="!$v.cv.gender.required && $v.cv.gender.$dirty">Le champ "Genre" est obligatoire</span>
-          </div>-->
           <div class="row">
               <div class="input-field col s12">
                   <label for="email">Email</label>
@@ -43,7 +32,6 @@
                   <span class="form-group__message alert" v-if="!$v.cv.phone.maxLength">Il doit y avoir un maximum de {{$v.cv.phone.$params.maxLength.min}} lettres.</span>
               </div>
               <div class="input-field col s6">
-                <label for="birthdate">Date de naissance </label>
                   <input id="birthdate" type="date" class="datepicker" v-model="cv.birthdate" v-model.trim="cv.birthdate" @input="$v.cv.birthdate.$touch()">
                   <span class="form-group__message alert" v-if="!$v.cv.birthdate.required && $v.cv.birthdate.$dirty">Le champ "Date de naissance" est obligatoire</span>
               </div>
@@ -67,6 +55,14 @@
                   <input id="photo" type="text" class="validate" v-model="cv.photo">
               </div>
           </div>
+
+          <div class="row">
+              <div class="input-field col s12">
+                  <label for="job">Job Title</label>
+                  <input id="job" type="text" class="validate" v-model="cv.job" v-model.trim="cv.job" @input="$v.cv.job.$touch()">
+                  <span class="form-group__message alert" v-if="!$v.cv.job.required && $v.cv.job.$dirty">Le champ "Job Title" est obligatoire</span>
+              </div>
+          </div>
           <input type="submit" value="Envoyer !">
       </form>
 </template>
@@ -81,21 +77,21 @@ export default {
        cv : {
          lastname : '',
          firstname : '',
-         gender : '',
          email : '',
          phone : '',
          birthdate : '',
          city : '',
          country : '',
          photo : '',
+         job : '',
        }
      }
    },
-   /*methods:{
+   methods:{
      send: function(){
        this.$emit('send', this.cv);
      },
-  },*/
+  },
   validations: {
             cv: {
                 firstname: {
@@ -105,9 +101,6 @@ export default {
                 lastname: {
                     required,
                     minLength : minLength(2),
-                },
-                gender: {
-                    required,
                 },
                 email: {
                     required,
@@ -129,7 +122,10 @@ export default {
                 },
                 photo: {
                     url
-                }
+                },
+                job: {
+                    required,
+                },
             }
     }
 }

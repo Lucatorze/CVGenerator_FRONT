@@ -3,14 +3,14 @@
         <h1>Créez votre CV</h1>
         <hr>
         <br>
-        <cv-form></cv-form>
+        <cv-form @send="addCv"></cv-form>
     </div>
 </template>
 
 <script>
-
+    import CvDisplay from '../components/CvDisplay.vue';
     import CvForm from "../components/CvForm.vue";
-    //import axios from 'axios';
+    import axios from 'axios';
 
     export default {
         components: {CvForm},
@@ -20,12 +20,14 @@
                 cv : {},
             }
         },
-        /*methods:{
-          addUser: function (user) {
-              console.log(user);
-              axios.post('http://localhost:1337/collaborateur', user)
-              location.reload();
+        methods:{
+          addCv: function (cv) {
+              console.log(cv);
+              return axios
+        .post('//10.38.163.169:3002/cv/create', cv)
+        .then(res => res.data)
+        .catch(console.message);
           },
-      }*/
+      }
     }
 </script>
