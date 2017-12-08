@@ -7,71 +7,42 @@
         <br>
         <div id="workbench">
               <div id="info">
-                 {{cv.city}}, {{cv.country}}<br>
+                 {{cv.adress}}<br>{{cv.city}}, {{cv.country}}<br>
                  +33{{cv.phone}}<br> {{cv.email}}
               </div><br>
               <div class="photo">
                   <img :src="cv.photo" width="200px">
               </div>
               <h1>{{cv.firstname}} {{cv.lastname}}<br>{{cv.job}}</h1>
-              
-              <br><br><br>              
+          
               <div class="section">
                 <h2>Experience</h2>
                 <div class="content">
-                  <span class="date">Start &raquo; End Year</span>
-                  <h3>Job Title One</h3>
-                  <address>Company Name, Address, City Province</address>
-                  <ul>
-                    <li>Bullet one Bullet one</li>
-                    <li>Bullet two Bullet two</li>
-                    <li>Bullet three Bullet three</li>
-                    <li>Bullet four Bullet four</li>
-                  </ul>
+                  <span class="date">{{cv.experience[0].dateStart1 | moment("DD/MM/YYYY")}} &raquo; {{cv.experience[0].dateEnd1 | moment("DD/MM/YYYY")}}</span>
+                  <h3>{{cv.experience[0].jobTitle1}}</h3>
+                  <address>{{cv.experience[0].compagny1}}, {{cv.experience[0].place1}}</address>
+                  {{cv.experience[0].description1}}
                   
-                  <span class="date">Start &raquo; End Year</span>
-                  <h3>Job Title Two</h3>
-                  <address>Company Name, Address, City Province</address>
-                  <ul>
-                    <li>Bullet one Bullet one</li>
-                    <li>Bullet two Bullet two</li>
-                    <li>Bullet three Bullet three</li>
-                    <li>Bullet four Bullet four</li>
-                  </ul>
-                  
-                  <span class="date">Start &raquo; End Year</span>
-                  <h3>Job Title Three</h3>
-                  <address>Company Name, Address, City Province</address>
-                </div>
-              </div>
-              
-              <div class="section">
-                <h2>Volunteer Experience</h2>
-                <div class="content">
-                  <span class="date">Start &raquo; End Year</span>
-                  <h3>Volunteer Job Title</h3>
-                  <address>Company Name, Address, City Province</address>
-                  <ul>
-                    <li>Bullet one Bullet one</li>
-                    <li>Bullet two Bullet two</li>
-                    <li>Bullet three Bullet three</li>
-                  </ul>
+                  <span class="date">{{cv.experience[0].dateStart2 | moment("DD/MM/YYYY")}} &raquo; {{cv.experience[0].dateEnd2 | moment("DD/MM/YYYY")}}</span>
+                  <h3>{{cv.experience[0].jobTitle2}}</h3>
+                  <address>{{cv.experience[0].compagny2}}, {{cv.experience[0].place2}}</address>
+                  {{cv.experience[0].description2}}
                 </div>
               </div>
               
               <div class="section">
                 <h2>Formation</h2>
-                  <ul>
-                    <li>Candidate for Bachelor of Major, University, Province,  StartYear - Present</li>
-                    <li>OSSD, Highschool, Town, Province, StartYear-EndYear</li>
-                  </ul>
+                <div class="content">
+                  <span class="date">{{cv.formation[0].dateStart1 | moment("DD/MM/YYYY")}} &raquo; {{cv.formation[0].dateEnd1 | moment("DD/MM/YYYY")}}</span>
+                  <h3>{{cv.name1}}</h3>
+                  <address>{{cv.formation[0].qualification1}}, {{cv.formation[0].place1}}</address>
+                  {{cv.formation[0].description1}}
+                </div>
               </div>
-              
+
               <div class="section">
-                <h2>Hobbie</h2>
-                  <ul>
-                    <li>Year, Year, Name of award/Scholarship</li>
-                  </ul>
+                <h2>Centre d'interet</h2>
+                  {{cv.hobbie}}
               </div>
           </div>
           <div id="canvas"></div>
@@ -89,7 +60,45 @@ export default {
   name: "generator-view",
   data() {
     return {
-      cv: null,
+      cv: {
+        adress:"",
+        birthdate:"",
+        city:"",
+        country:"",
+        email:"",
+        experience: [{
+          compagny1:"",
+          compagny2:"",
+          dateEnd1:"",
+          dateEnd2:"",
+          dateStart1:"",
+          dateStart2:"",
+          description1:"",
+          jobTitle1:"",
+          jobTitle2:"",
+          place1:"",
+          place2:"",
+        }],
+        firstname:"",
+        formation: [{
+          dateEnd1:"",
+          dateEnd2:"",
+          dateStart1:"",
+          dateStart2:"",
+          description1:"",
+          name1:"",
+          name2:"",
+          place1:"",
+          place2:"",
+          qualification1:"",
+          qualification2:"",
+        }],
+        hobbie:"",
+        job:"",
+        lastname:"",
+        phone:"",
+        photo:"",
+      }
     };
   },
   created() {
@@ -100,7 +109,7 @@ export default {
   methods: {
     generatePdf(){
 
-      html2canvas(document.getElementById('workbench'))
+      html2canvas(document.getElementById('workbench'), {letterRendering: 1, allowTaint : true})
       .then((canvas) => {
         var img=canvas.toDataURL("image/png", 1.0);
         var doc = new JsPDF("mm");
@@ -113,8 +122,6 @@ export default {
 </script>
 
 <style>
-
-
 #workbench {
   width: 100%;
   min-height: 1000px;

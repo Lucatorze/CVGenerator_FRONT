@@ -73,6 +73,12 @@
           </div>
 
           <div class="row">
+               <div class="input-field col s12">
+                   <label for="hobbies">hobbies</label>
+          <textarea id="hobbies" v-model="cv.hobbies" v-model.trim="cv.hobbies" type="text"></textarea>
+                </div>
+          </div>
+          <div class="row">
               <div class="input-field col s6">
                   <label for="experience" id="experience" >Expérience</label>
                   <div class="input-field">
@@ -148,7 +154,7 @@ export default {
          country : '',
          photo : '',
          job : '',
-         experience : {
+         experience : [{
            jobTitle1:'',
            compagny1:'',
            place1:'',
@@ -161,8 +167,8 @@ export default {
            dateStart2:'',
            dateStart2:'',
            description2:''
-         },
-         formation:{
+         }],
+         formation:[{
            name1:'',
            qualification1:'',
            place1:'',
@@ -175,7 +181,8 @@ export default {
            dateStart2:'',
            dateEnd2:'',
            description2:'',
-         }
+         }],
+        hobbies : '',
        }
      }
    },

@@ -9,7 +9,7 @@ import AgeFilter from './filters/AgeFilter'
 Vue.use(Vuelidate);
 Vue.use(VueRouter);
 Vue.filter('age', AgeFilter);
-
+Vue.use(require('vue-moment'));
 
 new Vue({
   el: '#app',

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_ENDPOINT = '//10.38.163.169:3002'
+const API_ENDPOINT = '//192.168.0.47:3002'
 
 export default {
     fetchAll() {
