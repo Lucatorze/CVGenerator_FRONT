@@ -36,6 +36,14 @@
                   <span class="form-group__message alert" v-if="!$v.cv.birthdate.required && $v.cv.birthdate.$dirty">Le champ "Date de naissance" est obligatoire</span>
               </div>
           </div>
+
+          <div class="row">
+                  <div class="input-field col s12">
+                    <label for="adress">Adresse</label>
+                      <input id="adress" type="text" class="validate" v-model="cv.adress">
+                  </div>
+              </div>
+
           <div class="row">
               <div class="input-field col s6">
                   <label for="city">Ville</label>
@@ -63,6 +71,61 @@
                   <span class="form-group__message alert" v-if="!$v.cv.job.required && $v.cv.job.$dirty">Le champ "Job Title" est obligatoire</span>
               </div>
           </div>
+
+          <div class="row">
+              <div class="input-field col s6">
+                  <label for="experience" id="experience" >Expérience</label>
+                  <div class="input-field">
+                    <input id="jobTitle1" v-model="cv.experience.jobTitle1" v-model.trim="cv.experience.jobTitle1" type="text" placeholder="Job Title" >
+                    <input id="compagny1" v-model="cv.experience.compagny1" v-model.trim="cv.experience.compagny1" type="text" placeholder="Compagny">
+                    <input id="place1" v-model="cv.experience.place1" v-model.trim="cv.experience.place1"type="text" placeholder="Place">
+                    <input id="dateStart1" v-model="cv.experience.dateStart1" v-model.trim="cv.experience.dateStart1" type="date">
+                    <input id="dateEnd1" v-model="cv.experience.dateEnd1" v-model.trim="cv.experience.dateEnd1"type="date">
+                    <textarea id="description1" v-model="cv.experience.description1" v-model.trim="cv.experience.description1" type="text" placeholder="Description"></textarea>
+                  </div>
+              </div>
+
+              <div class="input-field col s6">
+                  <label for="formation">Formation</label>
+                  <div class="input-field">
+                    <input id="name1" v-model="cv.formation.name1" v-model.trim="cv.formation.name1" type="text" placeholder="Name" >
+                    <input id="qualification1" v-model="cv.formation.qualification1" v-model.trim="cv.formation.qualification1" type="text" placeholder="Qualification">
+                    <input id="place1" v-model="cv.formation.place1" v-model.trim="cv.formation.place1" type="text" placeholder="Place">
+                    <input id="dateStart1" v-model="cv.formation.dateStart1" v-model.trim="cv.formation.dateStart1" type="date">
+                    <input id="dateEnd1" v-model="cv.formation.dateEnd1" v-model.trim="cv.formation.dateEnd1" type="date">
+                    <textarea id="description1" v-model="cv.formation.description1" v-model.trim="cv.formation.description1" type="text" placeholder="Description"></textarea>
+                  </div>
+              </div>
+            </div>
+            <br /><br />
+            <hr />
+            <br /><br />
+            <div class="row">
+                <div class="input-field col s6">
+                    <label for="experience">Expérience</label>
+                    <div class="input-field">
+                      <input id="jobTitle2" v-model="cv.experience.jobTitle2" v-model.trim="cv.experience.jobTitle2" type="text" placeholder="Job Title" >
+                      <input id="compagny2" v-model="cv.experience.compagny2" v-model.trim="cv.experience.compagny2" type="text" placeholder="Compagny">
+                      <input id="place2" v-model="cv.experience.place2" v-model.trim="cv.experience.place2" type="text" placeholder="Place">
+                      <input id="dateStart2" v-model="cv.experience.dateStart2" v-model.trim="cv.experience.dateStart2" type="date">
+                      <input id="dateEnd2" v-model="cv.experience.dateEnd2" v-model.trim="cv.experience.dateEnd2" type="date">
+                      <textarea id="description2" v-model="cv.experience.description2" v-model.trim="cv.experience.description2" type="text" placeholder="Description"></textarea>
+                    </div>
+                </div>
+
+                <div class="input-field col s6">
+                    <label for="formation">Formation</label>
+                    <div class="input-field">
+                      <input id="name2" v-model="cv.formation.name2" v-model.trim="cv.formation.name2" type="text" placeholder="Name" >
+                      <input id="qualification2" v-model="cv.formation.qualification2" v-model.trim="cv.formation.qualification2" type="text" placeholder="Qualification">
+                      <input id="place2" v-model="cv.formation.place2" v-model.trim="cv.formation.place2" type="text" placeholder="Place">
+                      <input id="dateStart2" v-model="cv.formation.dateStart2" v-model.trim="cv.formation.dateStart2" type="date">
+                      <input id="dateEnd2" v-model="cv.formation.dateEnd2" v-model.trim="cv.formation.dateEnd2" type="date">
+                      <textarea id="description2" v-model="cv.formation.description2" v-model.trim="cv.formation.description2" type="text" placeholder="Description"></textarea>
+                    </div>
+                </div>
+              </div>
+          </div>
           <input type="submit" value="Envoyer !">
       </form>
 </template>
@@ -78,12 +141,41 @@ export default {
          lastname : '',
          firstname : '',
          email : '',
+         adress:'',
          phone : '',
          birthdate : '',
          city : '',
          country : '',
          photo : '',
          job : '',
+         experience : {
+           jobTitle1:'',
+           compagny1:'',
+           place1:'',
+           dateStart1:'',
+           dateStart1:'',
+           description1:'',
+           jobTitle2:'',
+           compagny2:'',
+           place2:'',
+           dateStart2:'',
+           dateStart2:'',
+           description2:''
+         },
+         formation:{
+           name1:'',
+           qualification1:'',
+           place1:'',
+           dateStart1:'',
+           dateEnd1:'',
+           description1:'',
+           name2:'',
+           qualification2:'',
+           place2:'',
+           dateStart2:'',
+           dateEnd2:'',
+           description2:'',
+         }
        }
      }
    },
