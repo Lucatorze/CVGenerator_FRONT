@@ -3,13 +3,13 @@
         <h1>Ajouter un collaborateur</h1>
         <hr>
         <br>
-        <user-form></user-form>
+        <cv-form></cv-form>
     </div>
 </template>
 
 <script>
 
-    import UserForm from "../components/CvForm.vue";
+    import CvForm from "../components/CvForm.vue";
     import axios from 'axios';
 
     export default {

@@ -3,69 +3,56 @@
           <div class="row">
               <div class="input-field col s6">
                   <label for="firstname">Prenom</label>
-                  <input id="firstname" type="text" class="validate" v-model="user.firstname" v-model.trim="user.firstname" @input="$v.user.firstname.$touch()">
+                  <input id="firstname" type="text" class="validate" v-model="cv.firstname" v-model.trim="cv.firstname" @input="$v.cv.firstname.$touch()">
 
-                  <span class="form-group__message alert" v-if="!$v.user.firstname.required && $v.user.firstname.$dirty">Le champ "Prenom" est obligatoire</span>
-                  <span class="form-group__message alert" v-if="!$v.user.firstname.minLength">Il doit y avoir un minimum de {{$v.user.firstname.$params.minLength.min}} lettres.</span>
+                  <span class="form-group__message alert" v-if="!$v.cv.firstname.required && $v.cv.firstname.$dirty">Le champ "Prenom" est obligatoire</span>
+                  <span class="form-group__message alert" v-if="!$v.cv.firstname.minLength">Il doit y avoir un minimum de {{$v.cv.firstname.$params.minLength.min}} lettres.</span>
               </div>
               <div class="input-field col s6">
                   <label for="lastname">Nom</label>
-                  <input id="lastname" type="text" class="validate" v-model="user.lastname" v-model.trim="user.lastname" @input="$v.user.lastname.$touch()">
-                  <span class="form-group__message alert" v-if="!$v.user.lastname.required && $v.user.lastname.$dirty">Le champ "Nom" est obligatoire</span>
-                  <span class="form-group__message alert" v-if="!$v.user.lastname.minLength">Il doit y avoir un minimum de {{$v.user.lastname.$params.minLength.min}} lettres.</span>
+                  <input id="lastname" type="text" class="validate" v-model="cv.lastname" v-model.trim="cv.lastname" @input="$v.cv.lastname.$touch()">
+                  <span class="form-group__message alert" v-if="!$v.cv.lastname.required && $v.cv.lastname.$dirty">Le champ "Nom" est obligatoire</span>
+                  <span class="form-group__message alert" v-if="!$v.cv.lastname.minLength">Il doit y avoir un minimum de {{$v.cv.lastname.$params.minLength.min}} lettres.</span>
               </div>
-          </div>
-          <div class="row">
-              <p>
-                  <label for="male">Homme</label>
-                  <input name="gender" type="radio" id="male" value="male" v-model="user.gender" v-model.trim="user.gender" @input="$v.user.gender.$touch()">
-
-              </p>
-              <p>
-                  <label for="female">Femme</label>
-                  <input name="gender" type="radio" id="female" value="female" v-model="user.gender" v-model.trim="user.gender" @input="$v.user.gender.$touch()">
-              </p>
-              <span class="form-group__message alert" v-if="!$v.user.gender.required && $v.user.gender.$dirty">Le champ "Genre" est obligatoire</span>
           </div>
           <div class="row">
               <div class="input-field col s12">
                   <label for="email">Email</label>
-                  <input id="email" type="email" class="validate" v-model="user.email" v-model.trim="user.email" @input="$v.user.email.$touch()">
-                  <span class="form-group__message alert" v-if="!$v.user.email.required && $v.user.email.$dirty">Le champ "Email" est obligatoire</span>
-                  <span class="form-group__message alert" v-if="!$v.user.email.email">La saisie ne correspond pas à une email</span>
+                  <input id="email" type="email" class="validate" v-model="cv.email" v-model.trim="cv.email" @input="$v.cv.email.$touch()">
+                  <span class="form-group__message alert" v-if="!$v.cv.email.required && $v.cv.email.$dirty">Le champ "Email" est obligatoire</span>
+                  <span class="form-group__message alert" v-if="!$v.cv.email.email">La saisie ne correspond pas à une email</span>
               </div>
           </div>
           <div class="row">
               <div class="input-field col s6">
                 <label for="phone">Telephone</label>
-                  <input id="phone" type="tel" class="validate" v-model="user.phone" v-model.trim="user.phone" @input="$v.user.phone.$touch()">
-                  <span class="form-group__message alert" v-if="!$v.user.phone.required && $v.user.phone.$dirty">Le champ "Telephone" est obligatoire</span>
-                  <span class="form-group__message alert" v-if="!$v.user.phone.minLength">Il doit y avoir un minimum de {{$v.user.phone.$params.minLength.min}} lettres.</span>
-                  <span class="form-group__message alert" v-if="!$v.user.phone.maxLength">Il doit y avoir un maximum de {{$v.user.phone.$params.maxLength.min}} lettres.</span>
+                  <input id="phone" type="tel" class="validate" v-model="cv.phone" v-model.trim="cv.phone" @input="$v.cv.phone.$touch()">
+                  <span class="form-group__message alert" v-if="!$v.cv.phone.required && $v.cv.phone.$dirty">Le champ "Telephone" est obligatoire</span>
+                  <span class="form-group__message alert" v-if="!$v.cv.phone.minLength">Il doit y avoir un minimum de {{$v.cv.phone.$params.minLength.min}} lettres.</span>
+                  <span class="form-group__message alert" v-if="!$v.cv.phone.maxLength">Il doit y avoir un maximum de {{$v.cv.phone.$params.maxLength.min}} lettres.</span>
               </div>
               <div class="input-field col s6">
-                <label for="birthdate">Date de naissance </label>
-                  <input id="birthdate" type="date" class="datepicker" v-model="user.birthdate" v-model.trim="user.birthdate" @input="$v.user.birthdate.$touch()">
-                  <span class="form-group__message alert" v-if="!$v.user.birthdate.required && $v.user.birthdate.$dirty">Le champ "Date de naissance" est obligatoire</span>
+                  <input id="birthdate" type="date" class="datepicker" v-model="cv.birthdate" v-model.trim="cv.birthdate" @input="$v.cv.birthdate.$touch()">
+                  <span class="form-group__message alert" v-if="!$v.cv.birthdate.required && $v.cv.birthdate.$dirty">Le champ "Date de naissance" est obligatoire</span>
               </div>
           </div>
           <div class="row">
               <div class="input-field col s6">
                   <label for="city">Ville</label>
-                  <input id="city" type="text" class="validate" v-model="user.city" v-model.trim="user.city" @input="$v.user.city.$touch()">
-                  <span class="form-group__message alert" v-if="!$v.user.city.required && $v.user.city.$dirty">Le champ "Ville" est obligatoire</span>
+                  <input id="city" type="text" class="validate" v-model="cv.city" v-model.trim="cv.city" @input="$v.cv.city.$touch()">
+                  <span class="form-group__message alert" v-if="!$v.cv.city.required && $v.cv.city.$dirty">Le champ "Ville" est obligatoire</span>
 
               </div>
               <div class="input-field col s6">
                 <label for="country">Pays</label>
-                  <input id="country" type="text" class="validate" v-model="user.country" v-model.trim="user.country" @input="$v.user.country.$touch()">
-                  <span class="form-group__message alert" v-if="!$v.user.country.required && $v.user.country.$dirty">Le champ "Pays" est obligatoire</span>
+                  <input id="country" type="text" class="validate" v-model="cv.country" v-model.trim="cv.country" @input="$v.cv.country.$touch()">
+                  <span class="form-group__message alert" v-if="!$v.cv.country.required && $v.cv.country.$dirty">Le champ "Pays" est obligatoire</span>
               </div>
           </div>
           <div class="row">
               <div class="input-field col s12">
                 <label for="photo">Photo</label>
-                  <input id="photo" type="text" class="validate" v-model="user.photo">
+                  <input id="photo" type="text" class="validate" v-model="cv.photo">
               </div>
           </div>
           <input type="submit" value="Envoyer !">
@@ -94,7 +81,7 @@ export default {
    },
    /*methods:{
      send: function(){
-       this.$emit('send', this.user);
+       this.$emit('send', this.cv);
      },
   },*/
   validations: {
@@ -137,7 +124,7 @@ export default {
 </script>
 
 <style>
-.userform input, select {
+.cvform input, select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -147,7 +134,7 @@ export default {
     box-sizing: border-box;
 }
 
-.userform input[type=submit] {
+.cvform input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -158,11 +145,11 @@ export default {
     cursor: pointer;
 }
 
-.user-form input[type=submit]:hover {
+.cv-form input[type=submit]:hover {
     background-color: #45a049;
 }
 
-.user{
+.cv{
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;

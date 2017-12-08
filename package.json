@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "vue": "^2.4.4",
+    "vue-draggable-resizable": "^1.5.3",
     "vue-router": "^3.0.1",
     "vuelidate": "^0.6.1"
   },
