@@ -97,7 +97,9 @@
                   </div>
               </div>
             </div>
-
+            <br /><br />
+            <hr />
+            <br /><br />
             <div class="row">
                 <div class="input-field col s6">
                     <label for="experience">Expérience</label>
