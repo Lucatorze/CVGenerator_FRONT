@@ -24,7 +24,7 @@ export default {
     },
     addCv(cv){
         return axios
-        .post(`${API_ENDPOINT}/cv, cv`)
+        .post(`${API_ENDPOINT}/cv/create`, cv)
         .then(res => res.data)
         .catch(console.error);
     }

@@ -9,6 +9,7 @@
 
 <script>
     import CvDisplay from '../components/CvDisplay.vue';
+    import CvService from "../service/CvService";
     import CvForm from "../components/CvForm.vue";
     import axios from 'axios';
 
@@ -21,13 +22,11 @@
             }
         },
         methods:{
-          addCv: function (cv) {
-              console.log(cv);
-              return axios
-        .post('//10.38.163.169:3002/cv/create', cv)
-        .then(res => res.data)
-        .catch(console.message);
-          },
+            addCv(cv){
+            CvService.addCv(cv).then(cv => {
+                        console.log('ok')
+             });
+            }
       }
     }
 </script>

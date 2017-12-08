@@ -1,16 +1,7 @@
 <template>
     <article class="cv-display">
-        <figure>
-            <img :src="cv.photo" :alt="fullname">
-        </figure>
         <div>
-            <h1>{{fullname}}</h1>
-            <p>
-            <i class="material-icons">email</i> <a href="mailto:edouard.brun@example.com" :title="'Envoyer un email à ' + fullname">{{cv.email}}</a><br>
-            <i class="material-icons">local_phone</i><a :href="'tel:'+cv.phone" :title="'Téléphoner à ' + fullname">{{cv.phone}}</a><br>
-            <i class="material-icons">perm_contact_calendar</i> {{cv.birthdate}} ({{cv.birthdate | age}} ans)<br>
-            <i class="material-icons">location_on</i>  {{cv.city}}, {{cv.country}}
-            </p>
+            <center><h4>{{fullname}}</h4></center><br>
             <router-link :to="{ name: 'generator', params: { id: cv.id }}"><button class="waves-effect waves-light btn">Modifier ce cv</button></router-link>
             <button class="waves-effect waves-light btn" @click.prevent="remove">Supprimer</button>
         </div>
@@ -47,19 +38,20 @@ export default {
   overflow: auto;
   text-align: left;
   padding: 0.25em 1.25em 0.25em 0;
-
-  > figure {
+}
+   figure {
     margin: 0.25em;
     text-align: center;
     display: flex;
     align-items: center;
-    > img {
+   }
+    img {
       display: block;
       border-radius: 300px;
     }
-  }
+  
 
-  > div {
+   div {
     margin: 0.25em;
     font-size: 0.8em;
     line-height: 1.6em;
@@ -68,6 +60,6 @@ export default {
   h1 {
     margin: 0.25em 0 0.5em;
   }
-}
+
 
 </style>

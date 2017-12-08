@@ -73,12 +73,6 @@
           </div>
 
           <div class="row">
-               <div class="input-field col s12">
-                   <label for="hobbies">hobbies</label>
-          <textarea id="hobbies" v-model="cv.hobbies" v-model.trim="cv.hobbies" type="text"></textarea>
-                </div>
-          </div>
-          <div class="row">
               <div class="input-field col s6">
                   <label for="experience" id="experience" >Expérience</label>
                   <div class="input-field">
@@ -131,6 +125,13 @@
                     </div>
                 </div>
               </div>
+
+              <div class="row">
+                  <div class="input-field col s12">
+                      <textarea id="hobbie" type="text"  v-model="cv.hobbie" v-model.trim="cv.hobbie" placeholder="Hobbies"> </textarea>
+
+                  </div>
+              </div>
           </div>
           <input type="submit" value="Envoyer !">
       </form>
@@ -138,7 +139,6 @@
 
 <script>
 import { required, email, minLength, maxLength, url } from 'vuelidate/lib/validators'
-
 export default {
    name : "cv-form",
    data () {
@@ -154,7 +154,7 @@ export default {
          country : '',
          photo : '',
          job : '',
-         experience : [{
+         experience : {
            jobTitle1:'',
            compagny1:'',
            place1:'',
@@ -167,8 +167,8 @@ export default {
            dateStart2:'',
            dateStart2:'',
            description2:''
-         }],
-         formation:[{
+         },
+         formation:{
            name1:'',
            qualification1:'',
            place1:'',
@@ -181,8 +181,8 @@ export default {
            dateStart2:'',
            dateEnd2:'',
            description2:'',
-         }],
-        hobbies : '',
+         },
+         hobbie:''
        }
      }
    },
@@ -231,37 +231,6 @@ export default {
 </script>
 
 <style>
-.cvform input, select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.cvform input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.cv-form input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-.cv{
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
 .alert {
       color: #D8000C;
       float: right;
